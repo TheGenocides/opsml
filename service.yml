@@ -1,16 +1,11 @@
-apiVersion: v1
-kind: Service
+apiVersion: v1                 
+kind: Service                  
 metadata:
-  namespace: OPSML
-  name: techno-opsml
+  name: techno-apps-service         
 spec:
-  ports:
-    - port: 80
-      targetPort: 80
-      protocol: TCP
-    - port: 443
-      targetPort: 443
-      protocol: TCP
-  type: NodePort
+  type: LoadBalancer           
   selector:
-    app.kubernetes.io/name: app-2048
+    app: techno-apps              
+  ports:
+    - port: 80                 
+      targetPort: 2000
