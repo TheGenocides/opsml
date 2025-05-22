@@ -1,0 +1,18 @@
+apiVersion: OPSML/v1
+kind: Deployment
+metadata:
+  namespace: OPSML
+  name: techno-opsml
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+        - image: 573411764112.dkr.ecr.us-east-1.amazonaws.com/techno-flask-project
+          imagePullPolicy: Always
+          name: flask
+          ports:
+            - containerPort: 2000
+          resources:
+            requests:
+              cpu: "0.5"
